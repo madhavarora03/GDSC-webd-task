@@ -1,12 +1,12 @@
-let sunriseTime = document.querySelector('#sunrise');
 let icons = document.querySelectorAll('.icon img');
 let weekDate = document.querySelectorAll('.week-date');
 let allTemp = document.querySelectorAll('.temp');
+let allTemp2 = document.querySelectorAll('.temp2');
 let humidity = document.querySelectorAll('.humidity');
 let windSpeed = document.querySelectorAll('.wind-speed');
 let search = document.querySelector('.search');
 let searchBtn = document.querySelector('.fa-search');
-let city = document.querySelector('#city');
+let city = document.querySelector('#city h4');
 
 search.addEventListener("keydown",(event)=>{
     if(event.keyCode===13){
@@ -111,12 +111,17 @@ function _data(xyz){
     document.querySelector('.precip').innerText = xyz.hourly.precipitation[cHrs];
     document.querySelector('.visibility').innerText = xyz.hourly.visibility[cHrs];
     document.querySelector('.pressure').innerText = xyz.hourly.pressure_msl[cHrs];
+    document.querySelector('#sunrise').innerText = xyz.daily.sunrise[0].slice(11);
+    document.querySelector('#sunset').innerText = xyz.daily.sunset[0].slice(11);
+    document.querySelector('.pressure').innerText = xyz.hourly.pressure_msl[cHrs];
     windSpeed[0].innerText = xyz.hourly.windspeed_10m[cHrs];
     allTemp[0].innerText = xyz.hourly.temperature_2m[cHrs]+"°C";
     for(var i=1;i<6;i++){
         weekDate[i-1].innerText = xyz.daily.time[i];
         allTemp[i].innerText = xyz.daily.temperature_2m_max[i];
+        allTemp2[i-1].innerText = xyz.daily.temperature_2m_min[i];
     }
+
     // console.log("testing");
     // console.log(xyz.hourly.temperature_2m[cHrs]);
 

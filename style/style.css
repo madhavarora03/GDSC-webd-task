@@ -30,6 +30,8 @@ h1 #main-content {
 
 h1 {
     font-family: 'Courier Prime', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
 }
 
 .background-gradient {
@@ -56,7 +58,8 @@ body {
     margin: 0;
     font-family: 'Dancing Script', 'cursive';
     user-select: none;
-    transition: all 0.5s ease-in-out;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
 
 }
 
@@ -79,6 +82,10 @@ body {
     background: none;
     pointer-events: none;
 }
+.heading h1{
+    font-weight: 900;
+    font-size: 2.7rem;
+}
 
 /* #background-image {
     box-shadow: 0.3em 0.3em 0.3em 0.3em rgba(0, 0, 0, 0.2);
@@ -95,10 +102,10 @@ body {
 }
 
 #background {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.1s ease-in-out;
     background-image: url("../images/cloudy.jpg");
     background-position: top;
-    /* width: 50vw; */
+    width: 50vw;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: absolute;
@@ -153,6 +160,7 @@ body {
     backdrop-filter: blur(5px);
     aspect-ratio: 384/600.297;
     width: 40vw;
+    transition: all 0.1s ease-in-out;
 }
 
 
@@ -263,9 +271,6 @@ body {
     padding: 2%;
 }
 
-.forecast div {
-    padding: 1px;
-}
 
 .forecast:hover {
     background-color: rgba(75, 75, 75, 0.3);
@@ -274,42 +279,45 @@ body {
     cursor: pointer;
 }
 
-/* .FC1:hover {
+.FC1:hover {
     background-color: rgba(75, 75, 75, 0.3);
     z-index: 1;
     transform: scale(1.25);
     cursor: pointer;
 }
-.FC2{
+.FC2:hover{
     background-color: rgba(75, 75, 75, 0.3);
     z-index: 1;
     transform: scale(1.25);
     cursor: pointer;
 }
-.FC3{
+.FC3:hover{
     background-color: rgba(75, 75, 75, 0.3);
     z-index: 1;
     transform: scale(1.25);
     cursor: pointer;
 }
-.FC4{
+.FC4:hover{
     background-color: rgba(75, 75, 75, 0.3);
     z-index: 1;
     transform: scale(1.25);
     cursor: pointer;
 }
-.FC5{background-color: rgba(75, 75, 75, 0.3);
+.FC5:hover{background-color: rgba(75, 75, 75, 0.3);
     z-index: 1;
     transform: scale(1.25);
     cursor: pointer;
-} */
+}
+.forecast div {
+    padding: 1px;
+}
 .forecast div {
     display: none;
+    height: auto;
 }
 
 .forecast:hover div {
     display: block;
-    /* padding: 10px; */
 }
 
 .icon {
@@ -320,6 +328,11 @@ body {
 
 .temp {
     text-transform: capitalize;
+}
+#today-temp .temp{
+    font-size: 3rem;
+    font-weight: 800;
+
 }
 
 
@@ -356,12 +369,11 @@ body {
 
     }
 
-    .background {
+    #background {
         display: flex;
-        width: 87
-    
+        width: 84vw;
     }
-
+   
     .info {
         width: 100vw;
         height: 100vh;
@@ -369,9 +381,15 @@ body {
         justify-content: center;
         align-items: center;
     }
-
+    /* .searchbox{
+        position: absolute;
+        z-index: 3;
+    } */
     .content {
         min-width: 85vw;
+    }
+    h1{
+        text-align: center;
     }
 }
 
