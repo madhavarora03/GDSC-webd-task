@@ -1,18 +1,20 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 1.25vw;
+    font-size: 1rem;
 }
-#main-content{
+
+#main-content {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
+
 body {
     color: white;
     height: 100vh;
     width: 100vw;
     text-align: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(239, 120, 128), rgb(255, 204, 183), rgb(193, 76, 111), rgb(121, 63, 92)) border-box;
+    background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(80, 87, 107), rgb(126, 141, 160), rgb(52, 73, 90), rgb(184, 191, 194), rgb(59, 63, 26)) border-box;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
@@ -30,11 +32,6 @@ body {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    /* background-image: url('../images/Loading.gif'); */
-    /* background-size: contain; */
-    /* background-position: center; */
-    /* background-repeat: none; */
-    /* background-attachment: fixed; */
     background-color: rgb(51, 73, 95);
     transition: opacity 4.5s ease;
     z-index: 1;
@@ -56,8 +53,12 @@ body {
 
 }
 
+#city{
+    text-transform: capitalize;
+}
+
 #background {
-    background-image: url("../images/Background.jpg");
+    background-image: url("../images/cloudy.jpg");
     background-position: top;
     width: 100vw;
     background-size: cover;
@@ -73,7 +74,7 @@ body {
     /* min-width: 60vw; */
     max-width: 819.219px;
     aspect-ratio: 819.219/600.297;
-    
+
 }
 
 
@@ -106,7 +107,7 @@ body {
     width: 30vw;
     aspect-ratio: 384/600.297;
     /* min-width: 60vw; */
-    
+
 }
 
 .content {
@@ -147,7 +148,7 @@ body {
 }
 
 #searchbox:hover input {
-    width: 20vw;
+    width: 18rem;
 }
 
 #searchbox:hover i {
@@ -170,7 +171,7 @@ body {
 
 #stats {
     display: grid;
-    grid-template-columns:auto auto ;
+    grid-template-columns: auto auto;
     grid-row-gap: 1rem;
     /* justify-content: space-between; */
     width: 60%;
@@ -183,7 +184,7 @@ body {
 }
 
 #stats-heading,
-#stats-val{
+#stats-val {
     font-weight: bold;
     display: grid;
     grid-row-gap: 1rem;
@@ -223,7 +224,7 @@ body {
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
     width: 18%;
     transition: transform 0.2s;
-    min-height: 25vh;
+    min-height: 5vh;
     padding: 2%;
 }
 
@@ -233,8 +234,31 @@ body {
     transform: scale(1.25);
     cursor: pointer;
 }
-.icon{
+
+.forecast div {
+    display: none;
+}
+
+.forecast:hover div {
+    display: block;
+}
+
+.icon {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
+
+
+/*
+    Default:
+    background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(239, 120, 128), rgb(255, 204, 183), rgb(193, 76, 111), rgb(121, 63, 92)) border-box;
+    Rainy:
+    background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(60, 149, 157), rgb(52, 127, 133), rgb(41, 100, 106), rgb(49, 118, 124)) border-box;
+    Snow:
+    background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(32, 59, 87), rgb(25, 52, 81), rgb(82, 108, 131), rgb(116, 146, 175), rgb(171, 171, 171)) border-box;
+    Cloudy:
+    background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(80, 87, 107), rgb(126, 141, 160), rgb(52, 73, 90), rgb(184, 191, 194), rgb(59, 63, 26)) border-box;
+    
