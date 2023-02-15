@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    </link>
+    <link rel="stylesheet" href="style/style.css"></link>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Weather</title>
@@ -14,87 +13,95 @@
 
 <body>
     <section id="main-content">
-        <div id="background">
-            <div id="searchbar">
-                <div id="searchbox">
-                    <input type="text" name="search" placeholder="Search..." class="search" />
-                    <i class="fa fa-search"></i>
-                </div>
-            </div>
-            <div id="today-temp"><span class="temp">27</span>°C</div>
-            <span id="city">New Delhi</span>
-            <div id="daily">Weather Updates</div>
-            <div id="day-forecast">
-                <div class="forecast">
-                    <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
-                    <span class="week-date">12-2-23</span>
-                    <div>Max Temp : <span class="temp">25</span>°C</div>
-                    <div>Humidity : <span class="humidity">58</span>%</div>
-                </div>
-                <div class="forecast">
-                    <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
-                    <span class="week-date">12-2-23</span>
-                    <div>Max Temp : <span class="temp">25</span>°C</div>
-                    <div>Humidity : <span class="humidity">58</span>%</div>
-                </div>
-                <div class="forecast">
-                    <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
-                    <span class="week-date">12-2-23</span>
-                    <div>Max Temp : <span class="temp">25</span>°C</div>
-                    <div>Humidity : <span class="humidity">58</span>%</div>
-                </div>
-                <div class="forecast">
-                    <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
-                    <span class="week-date">12-2-23</span>
-                    <div>Max Temp : <span class="temp">25</span>°C</div>
-                    <div>Humidity : <span class="humidity">58</span>%</div>
-                </div>
-                <div class="forecast">
-                    <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
-                    <span class="week-date">12-2-23</span>
-                    <div>Max Temp : <span class="temp">25</span>°C</div>
-                    <div>Humidity : <span class="humidity">58</span>%</div>
-                </div>
-            </div>
-        </div>
-        <div id="info">
-            <div class="content">
-                <div id="date-and-time">
-                    <div class="heading">Today's Weather</div>
-                    <div id="time">
-                        <h1>13:07</h1>
-                    </div>
-                    <div id="date">Friday, 10 Feb</div>
-                </div>
-                <div id="stats">
-                    <div id="stats-heading" class="data">
-                        <p>Humidity</p>
-                        <p>Pressure</p>
-                        <p>Wind Speed</p>
-                        <p>Sunrise</p>
-                        <p>Sunset</p>
-                        <p>Sunset</p>
-                        <p>Sunset</p>
-                    </div>
-                    <div id="stats-val" class="data">
-                        <p><span class="humidity">58</span>%</p>
-                        <p id="pressure">1007 hPa</p>
-                        <p><span class="wind-speed">3.65</span> m/s</p>
-                        <p id="sunrise">06:01</p>
-                        <p id="sunset">18:42</p>
-                        <p>18:42</p>
-                        <p>18:42</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="footer">
+        <div class="parent">
 
+            <div class="background-gradient"></div>
+            <div id="background">
+
+                <div id="searchbar">
+                    <div id="searchbox">
+                        <input type="text" name="search" placeholder="Search..." class="search" />
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <div id="today-temp">
+                    <h1 class="temp"></h1>
+                </div>
+                <span id="city">New Delhi</span>
+                <!-- <div id="daily">Weather Updates</div> -->
+                <div id="day-forecast">
+                    <div class="forecast FC1">
+                        <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
+                        <span class="week-date">12-2-23</span>
+                        <div>Max Temp : <span class="temp">25</span>°C</div>
+                        <div>Humidity : <span class="humidity">58</span>%</div>
+                    </div>
+                    <div class="forecast FC2">
+                        <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
+                        <span class="week-date">12-2-23</span>
+                        <div>Max Temp : <span class="temp">25</span>°C</div>
+                        <div>Humidity : <span class="humidity">58</span>%</div>
+                    </div>
+                    <div class="forecast FC3">
+                        <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
+                        <span class="week-date">12-2-23</span>
+                        <div>Max Temp : <span class="temp">25</span>°C</div>
+                        <div>Humidity : <span class="humidity">58</span>%</div>
+                    </div>
+                    <div class="forecast FC4">
+                        <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
+                        <span class="week-date">12-2-23</span>
+                        <div>Max Temp : <span class="temp">25</span>°C</div>
+                        <div>Humidity : <span class="humidity">58</span>%</div>
+                    </div>
+                    <div class="forecast FC5">
+                        <span class="icon"><img src="images/animated/cloudy-day-1.svg"></span>
+                        <span class="week-date">12-2-23</span>
+                        <div>Max Temp : <span class="temp">25</span>°C</div>
+                        <div>Humidity : <span class="humidity">58</span>%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="info">
+                <div class="content">
+                    <div id="date-and-time">
+                        <div class="heading">
+                            <h1>Today's Weather</h1>
+                        </div>
+                        <div id="time">
+                            <h2>13:07</h2>
+                        </div>
+                        <div id="date">Friday, 10 Feb, 2023</div>
+                    </div>
+                    <div id="stats">
+                        <div id="stats-heading" class="data">
+                            <p>Humidity</p>
+                            <p>Pressure</p>
+                            <p>Wind Speed</p>
+                            <p>Precipitation</p>
+                            <p>Visibility</p>
+                            <p>Sunrise</p>
+                            <p>Sunset</p>
+                        </div>
+                        <div id="stats-val" class="data">
+                            <p><span class="humidity">58</span>%</p>
+                            <p><span class="pressure">1007</span> hPa</p>
+                            <p><span class="wind-speed">3.65</span> m/s</p>
+                            <p><span class="precip"></span> mm</p>
+                            <p><span class="visibility"></span> m</p>
+                            <p id="sunrise">06:01</p>
+                            <p id="sunset">18:42</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <div class="loader-wrapper">
+    <footer> </footer>
+    <!-- <div class="loader-wrapper">
         <span id="loader"><img src="images/Loading.gif"></span>
-    </div>
+    </div> -->
     <script src="script/script.js"></script>
 </body>
 

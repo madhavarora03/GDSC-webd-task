@@ -37,8 +37,22 @@ var weathercodes = [
 ]
 // console.log("testing...")
 // console.log(weathercodes[1][weathercodes[0].indexOf(65)]);
-let currentDate = new Date();
+const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+let currentDate;
+let time;
+
+setInterval(() => {
+    currentDate = new Date();
+    // console.log(currentDate.getHours());
+    // console.log(currentDate.toLocaleDateString(undefined,options));
+    document.querySelector('#date').innerText = currentDate.toLocaleDateString(undefined,options);
+    time = currentDate.getHours().toString().padStart(2,'0')+":"+currentDate.getMinutes().toString().padStart(2,'0');
+    document.querySelector('#time').innerText = time;
+}, 1000);
+currentDate = new Date();
 let cHrs = currentDate.getHours();
+
+
 // console.log("Hiiiii")
 // console.log(cHrs);
 // let cMin = currentDate.getMinutes().toString().padStart(2,'0');
@@ -59,15 +73,6 @@ var monthArr = ["Jan", "Feb", "March", "Apr", "May", "Jun", "July", "Aug", "Sept
 // console.log(cMonth);
 // console.log(cYear);
 
-// let timeVal;
-// let dateVal; 
-// setInterval(() => {
-    //     timeVal = document.getElementById('time');
-    //     timeVal.innerText = `${cHrs}:${cMin}:${cSec}`
-    //     dateVal = document.getElementById('date');
-//     dateVal.innerText = `${cDay} ${monthArr[cMonth]} ${cYear}`
-// }, 1000);
-
 
 
 function get_coord(city_name){
@@ -75,7 +80,7 @@ function get_coord(city_name){
 }
 
 function get_data(xyz) {
-    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${xyz.results[0].latitude}&longitude=${xyz.results[0].longitude}&hourly=temperature_2m,relativehumidity_2m,precipitation,rain,visibility,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&timezone=auto&start_date=${apiDate}&end_date=${apiEndDate}`).then(response => response.json()).then(json => _data(json));
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${xyz.results[0].latitude}&longitude=${xyz.results[0].longitude}&hourly=temperature_2m,relativehumidity_2m,precipitation,rain,visibility,windspeed_10m,pressure_msl&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&timezone=auto&start_date=${apiDate}&end_date=${apiEndDate}`).then(response => response.json()).then(json => _data(json));
 }
 
 get_coord("new delhi");
@@ -83,26 +88,31 @@ get_coord("new delhi");
 function _data(xyz){
     console.log(xyz.hourly);
     console.log(xyz.daily);
-    // if(xyz.daily.weathercode[0]===0){
-    //     document.querySelector('body').setAttribute("style","background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(239, 120, 128), rgb(255, 204, 183), rgb(193, 76, 111), rgb(121, 63, 92)) border-box;")
-    //     document.querySelector('#background').setAttribute("style",`background-image: url("../images/cloudy.jpg")`)
-    // }
-    // else if(xyz.daily.weathercode[0]===1){
+    if(xyz.daily.weathercode[0]===0){
+        document.querySelector('body').setAttribute("style","background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(239, 120, 128), rgb(255, 204, 183), rgb(193, 76, 111), rgb(121, 63, 92)) border-box;background-repeat: no-repeat;background-attachment: fixed;")
+        document.querySelector('#background').style.backgroundImage="url(images/Background.jpg)";
+    }
+    else if(xyz.daily.weathercode[0]===1 || xyz.daily.weathercode[0]===2 || xyz.daily.weathercode[0]===3 || xyz.daily.weathercode[0]===45 || xyz.daily.weathercode[0]===48){
+        document.querySelector('body').setAttribute("style","    background: linear-gradient(rgba(255, 255, 255, 0.151), rgba(30, 30, 30, 0.785)) padding-box, linear-gradient(to bottom, rgb(80, 87, 107), rgb(126, 141, 160), rgb(52, 73, 90), rgb(184, 191, 194), rgb(59, 63, 26)) border-box;background-repeat: no-repeat;background-attachment: fixed;")
+        document.querySelector('#background').style.backgroundImage="url(images/cloudy.jpg)"
 
-    // }
-    // else if(xyz.daily.weathercode[0]===2){
+    }
+    else if(xyz.daily.weathercode[0]===2 || xyz.daily.weathercode[0]===2 || xyz.daily.weathercode[0]===2 || xyz.daily.weathercode[0]===2){
 
-    // }
-    // else if(xyz.daily.weathercode[0]===3){
+    }
+    else if(xyz.daily.weathercode[0]===3){
 
-    // }
+    }
     for(var i=1;i<6;i++){
         // console.log(xyz.daily.weathercode[i]);
         // console.log(weathercodes[1][weathercodes[0].indexOf(xyz.daily.weathercode[i])])
         icons[i-1].setAttribute("src",weathercodes[1][weathercodes[0].indexOf(xyz.daily.weathercode[i])]);
     }
-    allTemp[0].innerText = xyz.hourly.temperature_2m[cHrs];
+    document.querySelector('.precip').innerText = xyz.hourly.precipitation[cHrs];
+    document.querySelector('.visibility').innerText = xyz.hourly.visibility[cHrs];
+    document.querySelector('.pressure').innerText = xyz.hourly.pressure_msl[cHrs];
     windSpeed[0].innerText = xyz.hourly.windspeed_10m[cHrs];
+    allTemp[0].innerText = xyz.hourly.temperature_2m[cHrs]+"°C";
     for(var i=1;i<6;i++){
         weekDate[i-1].innerText = xyz.daily.time[i];
         allTemp[i].innerText = xyz.daily.temperature_2m_max[i];
@@ -111,7 +121,7 @@ function _data(xyz){
     // console.log(xyz.hourly.temperature_2m[cHrs]);
 
 
-    // updating prameters
+    // updating parameters
     humidity[5].innerText = xyz.hourly.relativehumidity_2m[cHrs];
 
     for(var i=1;i<6;i++){
