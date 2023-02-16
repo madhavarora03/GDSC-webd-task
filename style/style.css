@@ -374,6 +374,7 @@ body {
 
     #background {
         display: flex;
+        flex-direction: column;
         width: 84vw;
     }
    
